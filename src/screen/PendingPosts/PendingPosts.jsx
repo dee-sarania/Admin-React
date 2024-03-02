@@ -28,6 +28,40 @@ const PendingData = () => {
     console.log(`View button clicked for post ID: ${postId}`);
   };
 
+  // Import Axios or your preferred HTTP library
+
+  const handleApproveClick = (postId) => {
+    // Make a request to the approve API
+    axios
+      .post(`https://packetly.in/SatsangeeAPI/api/approvePost.php`, {
+        post_id: postId,
+      })
+      .then((response) => {
+        console.log(response.data);
+        // Handle success, maybe update state or show a success message
+      })
+      .catch((error) => {
+        console.error(error);
+        // Handle error, maybe show an error message
+      });
+  };
+
+  const handleRejectClick = (postId) => {
+    // Make a request to the reject API
+    axios
+      .post(`https://packetly.in/SatsangeeAPI/api/rejectPost.php`, {
+        post_id: postId,
+      })
+      .then((response) => {
+        console.log(response.data);
+        // Handle success, maybe update state or show a success message
+      })
+      .catch((error) => {
+        console.error(error);
+        // Handle error, maybe show an error message
+      });
+  };
+
   return (
     <><div>
     <Navbar /></div>
@@ -106,13 +140,13 @@ const PendingData = () => {
                     </button>
                     <button
                       className="bg-green-500 text-white text-sm px-3 py-2 rounded-md"
-                      onClick={() => handleViewClick(item.post_id)}
+                      onClick={() => handleApproveClick(item.post_id)}
                     >
                       Approve
                     </button>
                     <button
                       className="bg-red-500 text-white text-sm px-3 py-2 rounded-md"
-                      onClick={() => handleViewClick(item.post_id)}
+                      onClick={() => handleRejectClick(item.post_id)}
                     >
                       Reject
                     </button>
