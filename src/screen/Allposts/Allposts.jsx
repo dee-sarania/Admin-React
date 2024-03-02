@@ -6,6 +6,7 @@ const DataTable = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    // Fetch data from the database using Axios
     axios
       .get("https://packetly.in/SatsangeeAPI/api/getAllPosts.php")
       .then((response) => {
@@ -80,8 +81,20 @@ const DataTable = () => {
               <td className="py-2 px-4 border-b border-r border-gray-300">
                 {item.post_city}, {item.post_state}, {item.post_country}
               </td>
-              <td className="py-2 px-4 border-b border-r border-gray-300">
-                Approved
+              <td
+                className={`py-2 px-4 border-b border-r border-gray-300 font-semibold ${
+                  item.moderated === 1
+                    ? "text-green-500"
+                    : item.moderated === 0
+                    ? "text-blue-500"
+                    : "text-red-500"
+                }`}
+              >
+                {item.moderated === 1
+                  ? "Approved"
+                  : item.moderated === 0
+                  ? "Pending"
+                  : "Rejected"}
               </td>
               <td className="py-2 px-4 border-b border-r border-gray-300">
                 {item.post_created_at}

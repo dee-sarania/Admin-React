@@ -63,42 +63,60 @@ const PendingData = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item) => (
-            <tr key={item.post_id}>
-              <td className="py-2 px-4 border-b border-r border-gray-300">
-                {item.post_id}
-              </td>
-              <td className="py-2 px-4 border-b border-r border-gray-300">
-                {item.post_title}
-              </td>
-              <td className="py-2 px-4 border-b border-r border-gray-300 max-w-xs truncate">
-                {item.post_txt}
-              </td>
-              <td className="py-2 px-4 border-b border-r border-gray-300">
-                {item.category}
-              </td>
-              <td className="py-2 px-4 border-b border-r border-gray-300">
-                {item.user_email}
-              </td>
-              <td className="py-2 px-4 border-b border-r border-gray-300">
-                {item.post_city}, {item.post_state}, {item.post_country}
-              </td>
-              <td className="py-2 px-4 border-b border-r border-gray-300">
-                Approved
-              </td>
-              <td className="py-2 px-4 border-b border-r border-gray-300">
-                {item.post_created_at}
-              </td>
-              <td className="py-2 px-4 border-b">
-                <button
-                  className="bg-blue-500 text-white px-4 py-2 rounded-md"
-                  onClick={() => handleViewClick(item.post_id)}
+          {data
+            .filter((item) => item.moderated === 0)
+            .map((item) => (
+              <tr key={item.post_id}>
+                <td className="py-2 px-4 border-b border-r border-gray-300">
+                  {item.post_id}
+                </td>
+                <td className="py-2 px-4 border-b border-r border-gray-300">
+                  {item.post_title}
+                </td>
+                <td className="py-2 px-4 border-b border-r border-gray-300 max-w-xs truncate">
+                  {item.post_txt}
+                </td>
+                <td className="py-2 px-4 border-b border-r border-gray-300">
+                  {item.category}
+                </td>
+                <td className="py-2 px-4 border-b border-r border-gray-300">
+                  {item.user_email}
+                </td>
+                <td className="py-2 px-4 border-b border-r border-gray-300">
+                  {item.post_city}, {item.post_state}, {item.post_country}
+                </td>
+                <td
+                  className={`py-2 px-4 border-b border-r border-gray-300 text-blue-500`}
                 >
-                  View
-                </button>
-              </td>
-            </tr>
-          ))}
+                  Pending
+                </td>
+                <td className="py-2 px-4 border-b border-r border-gray-300">
+                  {item.post_created_at}
+                </td>
+                <td className="py-2 px-4 border-b">
+                  <div className="flex flex-col space-y-2 mx-2">
+                    <button
+                      className="bg-blue-500 text-white text-sm px-3 py-2 rounded-md"
+                      onClick={() => handleViewClick(item.post_id)}
+                    >
+                      View
+                    </button>
+                    <button
+                      className="bg-green-500 text-white text-sm px-3 py-2 rounded-md"
+                      onClick={() => handleViewClick(item.post_id)}
+                    >
+                      Approve
+                    </button>
+                    <button
+                      className="bg-red-500 text-white text-sm px-3 py-2 rounded-md"
+                      onClick={() => handleViewClick(item.post_id)}
+                    >
+                      Reject
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
