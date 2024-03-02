@@ -6,7 +6,6 @@ const DataTable = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    // Fetch data from the database using Axios
     axios
       .get("https://packetly.in/SatsangeeAPI/api/getAllPosts.php")
       .then((response) => {
