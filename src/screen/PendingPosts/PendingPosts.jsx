@@ -38,7 +38,19 @@ const PendingData = () => {
       })
       .then((response) => {
         console.log(response.data);
-        // Handle success, maybe update state or show a success message
+        axios
+        .get("https://packetly.in/SatsangeeAPI/api/getAllPosts.php")
+        .then((response) => {
+          // Check if the response data has the expected structure
+          if (response.data.Status && response.data.Status.List) {
+            setData(response.data.Status.List);
+          } else {
+            console.error("Invalid data format:", response.data);
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
       })
       .catch((error) => {
         console.error(error);
