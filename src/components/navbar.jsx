@@ -1,21 +1,26 @@
-import React from "react";
+import React, { useEffect } from 'react';
 
-const Navbar = () => {
-  return (
-    <div className="bg-gray-800 text-white h-screen w-60 p-4">
-      <h2 className="text-2xl font-bold mb-20 mt-10 ml-4">
-        Admin
-        <br />
-        Dashboard
-      </h2>
-      <ul>
-        <li className="py-2 font-semibold text-lg my-2 ml-4">All Posts</li>
-        <li className="py-2 font-semibold text-lg my-2 ml-4">Pending Posts</li>
-        <li className="py-2 font-semibold text-lg my-2 ml-4">Approved Posts</li>
-        <li className="py-2 font-semibold text-lg my-2 ml-4">Rejected Posts</li>
-      </ul>
-    </div>
-  );
-};
+
+function Navbar() {
+    return (
+        <div className="flex">
+            <div className="bg-gray-800 text-white w-72 h-screen fixed">
+                <p className="font-bold text-xl pt-10 pl-10">ADMIN DASHBOARD</p>
+                <ul className="mt-10">
+                    <li className="pageLinks"><a href="/posts" className="block py-2 px-10">All Posts</a></li>
+                    <li className="pageLinks"><a href="/pending_posts" className="block py-2 px-10">Pending Posts</a></li>
+                    <li className="pageLinks"><a href="/approved_posts" className="block py-2 px-10">Approved Posts</a></li>
+                    <li className="pageLinks"><a href="/rejected_posts" className="block py-2 px-10">Rejected Posts</a></li>
+                </ul>
+            </div>
+
+            <div className="absolute bottom-10 left-10">
+                <form action="/logout">
+                    <button type="submit" className="bg-red-500 text-white py-2 px-4 rounded cursor-pointer">Logout</button>
+                </form>
+            </div>
+        </div>
+    );
+}
 
 export default Navbar;

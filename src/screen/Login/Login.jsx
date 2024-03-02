@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-
+import { Link } from 'react-router-dom';
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -20,8 +20,9 @@ function Login() {
         console.log(response.data);
 
         if (response.status == 200) {
-          alert("Login Success");
-        } else {
+          window.location.href = "/posts";
+          
+          } else {
           alert("Login Failed");
         }
       })
@@ -69,7 +70,7 @@ function Login() {
           className="w-full bg-green-500 text-white py-3 rounded-lg font-semibold text-lg transition duration-300 hover:bg-green-600"
         >
           Login
-        </button>
+          </button>
       </div>
     </div>
   );
