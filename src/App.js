@@ -4,9 +4,9 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./screen/Login/Login.jsx";
 import DataTable from "./screen/Allposts/Allposts.jsx";
-import PendingData from "./screen/PendingPost/PendingPost.jsx";
 import ApprovedData from "./screen/ApprovedPosts/ApprovedPosts.jsx";
 import RejectData from "./screen/RejectPosts/RejectPosts.jsx";
+import PendingData from "./screen/PendingPosts/PendingPosts.jsx";
 
 function App() {
   return (

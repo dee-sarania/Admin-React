@@ -1,7 +1,7 @@
 // DataTable.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import Navbar from "../../components/navbar.jsx";
 const DataTable = () => {
   const [data, setData] = useState([]);
 
@@ -28,7 +28,10 @@ const DataTable = () => {
   };
 
   return (
-    <div className="ml-72 mr-48">
+    <><div>
+      <Navbar />
+    </div>
+          <div className="ml-96 mr-16">
       <h2 className="text-2xl font-bold mb-4 mt-8 text-center">All Posts</h2>
       <table className="min-w-full bg-white border border-gray-300">
         <thead>
@@ -112,6 +115,7 @@ const DataTable = () => {
         </tbody>
       </table>
     </div>
+    </>
   );
 };
 
