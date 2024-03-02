@@ -8,10 +8,7 @@ import RejectData from "./screen/RejectPosts/RejectPosts.jsx";
 function App() {
   return (
     <div>
-      {/* <DataTable /> */}
-      <ApprovedData />
-      {/* <PendingData />
-      <RejectData/> */}
+      <DataTable />
     </div>
   );
 }
