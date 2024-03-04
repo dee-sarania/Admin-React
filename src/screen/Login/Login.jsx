@@ -12,10 +12,16 @@ function Login() {
       password: password,
     };
 
-    const url = "/SatsangeeAPI/api/Isadmin.php";
 
+
+    const url = "https://packetly.in/SatsangeeAPI/api/Isadmin.php";
+    // use cors
     axios
-      .post(url, data)
+      .post(url, data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
       .then((response) => {
         console.log(response.data);
 
@@ -33,6 +39,7 @@ function Login() {
           alert("Unauthorized");
         }
       });
+  
   };
   return (
     <div className="flex justify-center items-center h-screen bg-gray-900">
